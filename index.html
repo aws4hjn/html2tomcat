@@ -1,18 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>My HTML Deployment Test</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deployment Flow Demo</title>
+<style>
+    body {
+        background-color: #ffffff;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 50px;
+        color: #333;
+    }
+
+    h1 {
+        margin-bottom: 50px;
+        color: #2c3e50;
+    }
+
+    .logo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 150px;
+        position: relative;
+    }
+
+    .logo {
+        width: 120px;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 1s ease;
+    }
+
+    .dot {
+        width: 20px;
+        height: 20px;
+        background-color: #0077cc;
+        border-radius: 50%;
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(-50px);
+        transition: all 0.8s ease;
+    }
+
+    /* Animated flow arrows */
+    .arrow {
+        position: absolute;
+        top: 60px;
+        width: 150px;
+        height: 2px;
+        background-color: #0077cc;
+        opacity: 0;
+        transition: all 1s ease;
+    }
+
+    .arrow::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: -5px;
+        border-top: 7px solid transparent;
+        border-bottom: 7px solid transparent;
+        border-left: 10px solid #0077cc;
+    }
+
+</style>
 </head>
 <body>
-    <h1>Welcome to My HTML Deployment Test!</h1>
-    <p>This HTML file is deployed automatically via Jenkins to Tomcat.</p>
-    <p>Last updated at: <span id="time"></span></p>
 
-    <script>
-        // Display current date and time
-        document.getElementById("time").innerText = new Date().toLocaleString();
-    </script>
+<h1>H J Nagesh - Deployment Flow Demo</h1>
+
+<div class="logo-container">
+    <img id="github" class="logo" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo">
+    <div class="arrow" id="arrow1" style="left: 180px;"></div>
+    <img id="jenkins" class="logo" src="https://www.jenkins.io/images/logos/jenkins/jenkins.png" alt="Jenkins Logo">
+    <div class="arrow" id="arrow2" style="left: 480px;"></div>
+    <img id="tomcat" class="logo" src="https://tomcat.apache.org/images/tomcat-logo.jpg" alt="Tomcat Logo">
+</div>
+
+<div class="dots" style="margin-top:50px;">
+    <span class="dot" id="dot1"></span>
+    <span class="dot" id="dot2"></span>
+    <span class="dot" id="dot3"></span>
+</div>
+
+<script>
+    // Show logos one by one with animation
+    setTimeout(() => {
+        document.getElementById('github').style.opacity = 1;
+        document.getElementById('github').style.transform = 'translateY(0)';
+    }, 500);
+
+    setTimeout(() => {
+        document.getElementById('arrow1').style.opacity = 1;
+    }, 1500);
+
+    setTimeout(() => {
+        document.getElementById('jenkins').style.opacity = 1;
+        document.getElementById('jenkins').style.transform = 'translateY(0)';
+    }, 2000);
+
+    setTimeout(() => {
+        document.getElementById('arrow2').style.opacity = 1;
+    }, 3000);
+
+    setTimeout(() => {
+        document.getElementById('tomcat').style.opacity = 1;
+        document.getElementById('tomcat').style.transform = 'translateY(0)';
+    }, 3500);
+
+    // Animate dots below
+    setTimeout(() => { document.getElementById('dot1').style.opacity = 1; document.getElementById('dot1').style.transform = 'translateY(0)'; }, 4000);
+    setTimeout(() => { document.getElementById('dot2').style.opacity = 1; document.getElementById('dot2').style.transform = 'translateY(0)'; }, 4500);
+    setTimeout(() => { document.getElementById('dot3').style.opacity = 1; document.getElementById('dot3').style.transform = 'translateY(0)'; }, 5000);
+</script>
+
 </body>
 </html>
-
