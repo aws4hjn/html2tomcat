@@ -3,123 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deployment Flow Demo</title>
+<title>HTML Deployment Pipeline</title>
 <style>
-    body {
-        background-color: #f5f5f5;
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 50px;
-        color: #333;
-    }
+  body {
+    background-color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #222;
+    text-align: center;
+    margin-top: 100px;
+  }
 
-    h1 {
-        margin-bottom: 50px;
-        color: #2c3e50;
-    }
+  h1 {
+    font-size: 40px;
+    color: #333;
+  }
 
-    .flow-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 150px;
-        position: relative;
-    }
+  .pipeline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 50px;
+    animation: move 3s infinite alternate;
+  }
 
-    .flow-item {
-        text-align: center;
-        position: relative;
-    }
+  .pipeline img {
+    width: 100px;
+    height: auto;
+  }
 
-    .flow-item img {
-        width: 120px;
-        transition: transform 1s, opacity 1s;
-        opacity: 0;
-    }
+  .arrow {
+    font-size: 50px;
+    color: #555;
+  }
 
-    .arrow {
-        width: 100px;
-        height: 4px;
-        background-color: #0077cc;
-        position: absolute;
-        top: 60px;
-        left: 130px;
-        transform-origin: left;
-        opacity: 0;
-        transition: opacity 1s;
-    }
+  @keyframes move {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-10px); }
+  }
 
-    /* Add arrowhead using pseudo-element */
-    .arrow::after {
-        content: '';
-        position: absolute;
-        right: 0;
-        top: -6px;
-        border-top: 7px solid transparent;
-        border-bottom: 7px solid transparent;
-        border-left: 14px solid #0077cc;
-    }
-
-    .flow-text {
-        margin-top: 10px;
-        font-weight: bold;
-        color: #0077cc;
-        opacity: 0;
-        transition: opacity 1s;
-    }
-
+  footer {
+    margin-top: 80px;
+    font-size: 18px;
+    color: #555;
+  }
 </style>
 </head>
 <body>
 
-<h1>H J Nagesh - Deployment Flow Demo</h1>
+<h1>🚀 HTML Deployment Pipeline</h1>
+<h2>Git → Jenkins → Tomcat</h2>
 
-<div class="flow-container">
-    <div class="flow-item">
-        <img id="github" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo">
-        <div class="flow-text" id="text-github">Code in GitHub</div>
-        <div class="arrow" id="arrow1"></div>
-    </div>
-    <div class="flow-item">
-        <img id="jenkins" src="https://www.jenkins.io/images/logos/jenkins/jenkins.png" alt="Jenkins Logo">
-        <div class="flow-text" id="text-jenkins">Build in Jenkins</div>
-        <div class="arrow" id="arrow2"></div>
-    </div>
-    <div class="flow-item">
-        <img id="tomcat" src="https://upload.wikimedia.org/wikipedia/en/8/8e/Apache_Tomcat_logo.png" alt="Tomcat Logo">
-        <div class="flow-text" id="text-tomcat">Deployment Done!</div>
-    </div>
+<div class="pipeline">
+  <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo">
+  <div class="arrow">➡️</div>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Jenkins_logo.svg" alt="Jenkins Logo">
+  <div class="arrow">➡️</div>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Apache_Tomcat_logo.svg" alt="Tomcat Logo">
 </div>
 
-<script>
-    // Show GitHub
-    setTimeout(() => {
-        document.getElementById('github').style.opacity = 1;
-        document.getElementById('text-github').style.opacity = 1;
-    }, 500);
-
-    // Show arrow1
-    setTimeout(() => {
-        document.getElementById('arrow1').style.opacity = 1;
-    }, 1500);
-
-    // Show Jenkins
-    setTimeout(() => {
-        document.getElementById('jenkins').style.opacity = 1;
-        document.getElementById('text-jenkins').style.opacity = 1;
-    }, 2000);
-
-    // Show arrow2
-    setTimeout(() => {
-        document.getElementById('arrow2').style.opacity = 1;
-    }, 3000);
-
-    // Show Tomcat
-    setTimeout(() => {
-        document.getElementById('tomcat').style.opacity = 1;
-        document.getElementById('text-tomcat').style.opacity = 1;
-    }, 3500);
-</script>
+<footer>
+  <p><strong>Deployment completed successfully by H J Nagesh 💻</strong></p>
+</footer>
 
 </body>
 </html>
+
